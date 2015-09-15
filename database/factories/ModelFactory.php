@@ -26,3 +26,12 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'content' => $faker->paragraph,
     ];
 });
+
+$factory->define(App\Comment::class, function (Faker\Generator $faker) {
+    return [
+        'post_id' => $faker->numberBetween(1,15),
+        'name' => $faker->name,
+        'email' => $faker->email,
+        'comment' => $faker->paragraph
+    ];
+});

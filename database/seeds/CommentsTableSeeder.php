@@ -2,8 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use App\Comment;
 
-class DatabaseSeeder extends Seeder
+class CommentsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,11 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-
-        $this->call(PostsTableSeeder::class);
-        $this->call(CommentsTableSeeder::class);
-
-        Model::reguard();
+        Comment::truncate();
+        factory('App\Comment', 40)->create();
+        
     }
 }

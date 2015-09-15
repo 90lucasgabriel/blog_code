@@ -4,7 +4,7 @@
 	<title>Blog</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
-<body>
+<body  style="background: #F2F2F2">
 
 	<nav class="navbar navbar-default">
     <div class="container-fluid">

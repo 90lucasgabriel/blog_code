@@ -10,7 +10,12 @@
 				<h3>{{$post->title}}</h3>
 				<p>{{$post->content}}</p>
 				
-				
+
+				<h4>Tags: </h4>
+				@foreach($post->tags as $tag)
+					{{$tag->name}} |
+				@endforeach
+
 				@foreach($post->comments as $comment)
 					<div class='col-sm-12'>
 						<hr/>
@@ -21,9 +26,12 @@
 
 				@endforeach
 
+
 				<div class="clearfix"></div>
 			</div>
 
+		
 		@endforeach
+		{!! $posts->render() !!}
 	</div>
 @endsection

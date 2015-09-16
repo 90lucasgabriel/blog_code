@@ -11,10 +11,13 @@ use App\Http\Controllers\Controller;
 
 class PostsController extends Controller
 {
+	private $post;
+	public function __construct(Post $post){
+		$this->post = $post;
+	}
+	
     public function index(){
-    	//$posts = $this->post->all();
-    	//return $posts;
-    	$posts = Post::all();
+    	$posts = $this->post->paginate(5);
     	return view('blog.index', compact('posts'));
     }
 }

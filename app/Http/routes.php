@@ -11,4 +11,16 @@
 |
 */
 
-Route::get('/', 'PostsController@index');
+
+Route::group(['prefix'=>'admin'], function(){
+	
+
+	Route::group(['prefix'=>'posts'], function(){
+		Route::get('', ['as'=>'admin.posts', 'uses'=>'PostsAdminController@index']);
+	});
+
+	Route::get('', ['as'=>'admin', 'uses'=>'PostsAdminController@index']);
+});
+
+Route::get('/', ['as'=>'posts', 'uses'=>'PostsController@index']);
+Route::get('{id}', ['as'=>'posts.view', 'uses'=>'PostsController@view']);

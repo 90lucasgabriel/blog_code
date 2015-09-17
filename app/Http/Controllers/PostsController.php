@@ -20,4 +20,9 @@ class PostsController extends Controller
     	$posts = $this->post->paginate(5);
     	return view('blog.index', compact('posts'));
     }
+
+    public function view($id){
+    	$post = $this->post->find($id);
+    	return view('blog.view', compact('post'));
+    }
 }

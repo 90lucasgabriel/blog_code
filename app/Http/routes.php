@@ -12,7 +12,7 @@
 */
 
 
-Route::group(['prefix'=>'admin'], function(){
+Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
 	
 
 	Route::group(['prefix'=>'posts'], function(){
@@ -27,5 +27,12 @@ Route::group(['prefix'=>'admin'], function(){
 	Route::get('', ['as'=>'admin', 'uses'=>'PostsAdminController@index']);
 });
 
+
+
 Route::get('/', ['as'=>'posts', 'uses'=>'PostsController@index']);
 Route::get('{id}', ['as'=>'posts.view', 'uses'=>'PostsController@view']);
+
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController'
+]);

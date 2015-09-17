@@ -14,9 +14,16 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
+        factory('App\User')->create([
+            'name' => 'Lucas Gabriel',
+            'email' => 'lucas@gmail.com',
+            'password' => bcrypt(123456),
+            'remember_token' => str_random(10) 
+        ]);
         $this->call(PostsTableSeeder::class);
         $this->call(CommentsTableSeeder::class);
         $this->call(TagTableSeeder::class);
+
 
         Model::reguard();
     }
